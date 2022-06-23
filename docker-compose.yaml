@@ -1,0 +1,13 @@
+version: '3'
+services:
+  chatbot_image_container:
+    build: .
+    ports:
+      - 8888:8888
+  mongodb:
+    image: mongo:4.4
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
