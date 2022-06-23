@@ -10,7 +10,6 @@ RUN conda env create -f environment.yml
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "chatbot", "/bin/bash", "-c"]
 
-# Demonstrate the environment is activated:
 
 #RUN python -m nltk.downloader wordnet
 #RUN python -m nltk.downloader punkt
@@ -18,7 +17,5 @@ SHELL ["conda", "run", "-n", "chatbot", "/bin/bash", "-c"]
 RUN python -m nltk.downloader omw-1.4
 
 RUN python chatbot.py
-#RUN python -m nltk.downloader omw-1.4
-# The code to run when container is started:
-# COPY run.py .
+
 ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "chatbot", "python", "app.py"]
