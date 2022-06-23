@@ -1,9 +1,9 @@
 FROM continuumio/miniconda3
 
 WORKDIR /app
-
-# Create the environment:
 COPY . .
+
+
 RUN conda env create -f environment.yml
 #RUN --mount=type=cache,target=/opt/conda/pkgs conda env create -f environment.yml
 
